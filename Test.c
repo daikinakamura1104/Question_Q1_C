@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 //マクロの定義　値
 #define SIZE_OF_MathARRAY(Matharray) (sizeof(Matharray)/sizeof(Matharray[0]))
@@ -62,15 +64,8 @@ void calculationofPhysics(const int* array,int size)
 
 }
 
-void calculationofStudentscore(){
-    int Studentscore[5][2] = {
-            {72,48},
-            {88,39},
-            {72,91},
-            {81,82},
-            {68,78}
-        };
-
+void calculationofStudentscore(int size1, int size2, int Studentscore[size1][size2]){
+    
     int l;
     int totalscore[5];
     for(l = 0; l < 5; l++){
@@ -88,13 +83,26 @@ void calculationofStudentscore(){
 
 int main(void)
 {
+    // char nameofMath[20];
+    // char nameofPhysics[10];
+    // strcpy(nameofMath,"数学");
+    // strcpy(nameofPhysics,"物理");
+
     int Matharray[5] = {72,88,72,81,68};
     int Physicsarray[5] = {48,39,91,82,78};
+    int Studentscore[5][2] = {
+            {72,48},
+            {88,39},
+            {72,91},
+            {81,82},
+            {68,78}
+        };
+
 
 
     calculationofMath(Matharray, SIZE_OF_MathARRAY(Matharray));
     calculationofPhysics(Physicsarray, SIZE_OF_PhysicsARRAY(Physicsarray));
-    calculationofStudentscore();
+    calculationofStudentscore(5,2,Studentscore);
 
 
     return 0;
