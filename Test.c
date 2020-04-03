@@ -8,7 +8,7 @@
 #define SIZE_OF_PhysicsARRAY(Physicsarray) (sizeof(Physicsarray)/sizeof(Physicsarray[0]))
 
 
-void calculationofMath(const int* array, int size)
+void calculationofSubject(const int* array, int size, char *str)
 {
     int i , max = array[0];
     for(i=1; i < size; i++){
@@ -16,7 +16,7 @@ void calculationofMath(const int* array, int size)
             max = array[i];
         }
     }
-    printf("数学の最大点:%d点\n",max);
+    printf("%sの最大点:%d点\n",str,max);
 
     int j , min = array[0];
     for(j=1; j < size; j++){
@@ -24,45 +24,18 @@ void calculationofMath(const int* array, int size)
             min = array[j];
         }
     }
-    printf("数学の最小点:%d点\n",min);
+    printf("%sの最小点:%d点\n",str,min);
 
     int k, sum = array[0];
     for (k= 1; k<size; k++){
         sum += array[k];
     }
     int avg = sum/size;
-    printf("数学の平均点:%d点\n",avg);
+    printf("%sの平均点:%d点\n",str,avg);
 
 
 }
 
-void calculationofPhysics(const int* array,int size)
-{
-    int i , max = array[0];
-    for(i=1; i < size; i++){
-        if(array[i] > max){
-            max = array[i];
-        }
-    }
-    printf("物理の最大点:%d点\n",max);
-
-    int j , min = array[0];
-    for(j=1; j < size; j++){
-        if(array[j] < min){
-            min = array[j];
-        }
-    }
-    printf("物理の最小点:%d点\n",min);
-
-    int k, sum = array[0];
-    for (k= 1; k<size; k++){
-        sum += array[k];
-    }
-    int avg = sum/size;
-    printf("物理の平均点:%d点\n",avg);
-
-
-}
 
 void calculationofStudentscore(int size1, int size2, int Studentscore[size1][size2]){
     
@@ -83,10 +56,8 @@ void calculationofStudentscore(int size1, int size2, int Studentscore[size1][siz
 
 int main(void)
 {
-    // char nameofMath[20];
-    // char nameofPhysics[10];
-    // strcpy(nameofMath,"数学");
-    // strcpy(nameofPhysics,"物理");
+    char nameofMath[10] = "数学";
+    char nameofPhysics[10] = "物理";
 
     int Matharray[5] = {72,88,72,81,68};
     int Physicsarray[5] = {48,39,91,82,78};
@@ -100,8 +71,8 @@ int main(void)
 
 
 
-    calculationofMath(Matharray, SIZE_OF_MathARRAY(Matharray));
-    calculationofPhysics(Physicsarray, SIZE_OF_PhysicsARRAY(Physicsarray));
+    calculationofSubject(Matharray, SIZE_OF_MathARRAY(Matharray),nameofMath);
+    calculationofSubject(Physicsarray, SIZE_OF_PhysicsARRAY(Physicsarray),nameofPhysics);
     calculationofStudentscore(5,2,Studentscore);
 
 
